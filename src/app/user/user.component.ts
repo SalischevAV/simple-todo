@@ -1,4 +1,4 @@
-import { Component, computed, Input, signal } from '@angular/core';
+import { Component, computed, input} from '@angular/core';
 import { User } from '../../common/mocks/dummy-user';
 
 @Component({
@@ -8,13 +8,11 @@ import { User } from '../../common/mocks/dummy-user';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input({
-    required: true
-  }) user: User | undefined;
+
+  user = input.required<User | undefined>()
+  imagePath = computed(() => `assets/users/${this.user()?.avatar}`)
   
-  get imagePath(){
-    return `assets/users/${this.user?.avatar}`
+  onSelectUser(){
+    console.log(this.user())
   }
-  
-  onSelectUser(){}
 }
