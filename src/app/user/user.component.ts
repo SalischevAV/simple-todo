@@ -1,4 +1,4 @@
-import { Component, computed, input} from '@angular/core';
+import { Component, computed, EventEmitter, input, Output} from '@angular/core';
 import { User } from '../../common/mocks/dummy-user';
 
 @Component({
@@ -11,8 +11,11 @@ export class UserComponent {
 
   user = input.required<User | undefined>()
   imagePath = computed(() => `assets/users/${this.user()?.avatar}`)
+
+  @Output() select = new EventEmitter();
   
   onSelectUser(){
-    console.log(this.user())
+    this.select.emit(this.user()?.id);
+    // console.log(this.user())
   }
 }

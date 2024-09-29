@@ -14,4 +14,8 @@ import { DUMMY_USERS } from '../common/mocks/dummy-user';
 export class AppComponent {
   title = 'udemy-course';
   users = DUMMY_USERS;
+
+  onSelectUser(id: string){
+    console.log(`Selected id: ${id}`)
+  }
 }
