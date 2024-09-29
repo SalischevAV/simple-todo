@@ -1,3 +1,16 @@
-<div class="">
-    <h2><p>{{user?.name ?? 'blank'}}</p></h2>
-</div>
+<section id="tasks">
+    <header>
+        <h2><p>{{user?.name}}'s Tasks</p></h2>
+        <menu>
+            <button>Add Task</button>
+        </menu>
+    </header>
+
+    <ul>
+        @for(task of usersTasks; track task.id){
+            <li>
+                <app-task [task]="task"/>
+            </li>
+        }
+    </ul>
+</section>

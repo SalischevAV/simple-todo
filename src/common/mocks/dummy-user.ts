@@ -1,3 +1,5 @@
+import { User } from "../types";
+
 export const DUMMY_USERS: User[] = [
     {
       id: 'u1',
@@ -30,9 +32,4 @@ export const DUMMY_USERS: User[] = [
       avatar: 'user-6.jpg',
     },
   ];
-
-  export type User = {
-    id: string
-    name: string
-    avatar: string
-  }
+  

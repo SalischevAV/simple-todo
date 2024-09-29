@@ -1,5 +1,5 @@
 import { Component, computed, EventEmitter, input, Output} from '@angular/core';
-import { User } from '../../common/mocks/dummy-user';
+import { User } from '../../common/types';
 
 @Component({
   selector: 'app-user',
