@@ -12,10 +12,10 @@ export class UserComponent {
   user = input.required<User | undefined>()
   imagePath = computed(() => `assets/users/${this.user()?.avatar}`)
 
-  @Output() select = new EventEmitter();
+  @Output() select = new EventEmitter<User>();
   
   onSelectUser(){
-    this.select.emit(this.user()?.id);
+    this.select.emit(this.user());
     // console.log(this.user())
   }
 }
