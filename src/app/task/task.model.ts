@@ -5,9 +5,3 @@ export type Task = {
     summary: string
     dueDate: string,
 }
-
-export type User = {
-    id: string
-    name: string
-    avatar: string
-  }

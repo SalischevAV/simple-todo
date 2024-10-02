@@ -1,4 +1,4 @@
-import { Task } from "../types";
+import { Task } from "../../app/task/task.model";
 
 export const dummyTasks: Task[] = [
     {

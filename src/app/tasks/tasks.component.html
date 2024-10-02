@@ -1,15 +1,21 @@
+@if(isCreateTaskDialogOpen){
+    <app-new-task 
+    (isCreateTaskDialogOpen)="onOpenCloseCreateDialog($event)"
+    (addTask)="onAddTask($event)"
+    />
+}
 <section id="tasks">
     <header>
         <h2><p>{{user?.name}}'s Tasks</p></h2>
         <menu>
-            <button>Add Task</button>
+            <button (click)="onOpenCloseCreateDialog(true)">Add Task</button>
         </menu>
     </header>
 
     <ul>
         @for(task of usersTasks; track task.id){
             <li>
-                <app-task [task]="task"/>
+                <app-task [task]="task" (complete)="onCompleteTask($event)"/>
             </li>
         }
     </ul>
