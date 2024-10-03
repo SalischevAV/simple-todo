@@ -1,4 +1,4 @@
-import { Task } from "../../app/task/task.model";
+import { Task } from "../../app/components/task/task.model";
 
 export const dummyTasks: Task[] = [
     {

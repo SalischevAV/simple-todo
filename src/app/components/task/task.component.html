@@ -1,12 +1,14 @@
 @if(task === undefined){
     ''
 } @else {
+    <app-card>
     <article>
         <h2>{{task.title}}</h2>
-        <time>{{task.dueDate}}</time>
+        <time>{{task.dueDate | date:'fullDate'}}</time>
         <p>{{task.summary}}</p>
         <p class="actions">
             <button (click)="onCompleteTask()">Complete</button>
         </p>
     </article>
+</app-card>
 }

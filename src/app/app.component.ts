@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { UserComponent } from './user/user.component';
+import { HeaderComponent } from './components/header/header.component';
+import { UserComponent } from './components/user/user.component';
 import { DUMMY_USERS } from '../common/mocks/dummy-user';
-import { TasksComponent } from './tasks/tasks.component';
-import { User } from './user/user.model';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { User } from './components/user/user.model';
 
 
 @Component({
