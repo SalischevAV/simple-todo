@@ -1,6 +1,12 @@
-import { Component, EventEmitter, inject, Input, Output, signal } from '@angular/core';
-import {FormsModule} from '@angular/forms'
-import { Task } from '../task/task.model';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  Output,
+  signal,
+} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { TasksService } from '../tasks/tasks.service';
 
 @Component({
@@ -8,29 +14,35 @@ import { TasksService } from '../tasks/tasks.service';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './new-task.component.html',
-  styleUrl: './new-task.component.css'
+  styleUrl: './new-task.component.css',
 })
 export class NewTaskComponent {
-  @Input({required: true}) userId: string | undefined
+  @Input({ required: true }) userId: string | undefined;
   @Output() isCreateTaskDialogOpen = new EventEmitter<boolean>();
   // @Output() addTask = new EventEmitter<Omit<Task, 'id' | 'userId'>>()
 
   // titleValue = '';
-  titleValue = signal('')
+  titleValue = signal('');
   summaryValue = '';
   dateValue = '';
 
-  private taskService = inject(TasksService)
+  private taskService = inject(TasksService);
 
-  onCloseCreateDialog(){
-    this.isCreateTaskDialogOpen.emit(false)
+  onCloseCreateDialog() {
+    this.isCreateTaskDialogOpen.emit(false);
   }
-  onCreate(){
-    this.userId && this.taskService.addTask({
-      title: this.titleValue().toString(),
-      summary: this.summaryValue,
-      dueDate: this.dateValue
-    }, this.userId)
-    this.isCreateTaskDialogOpen.emit(false)
+  onCreate() {
+    if (!this.userId) {
+      return;
+    }
+    this.taskService.addTask(
+      {
+        title: this.titleValue().toString(),
+        summary: this.summaryValue,
+        dueDate: this.dateValue,
+      },
+      this.userId
+    );
+    this.isCreateTaskDialogOpen.emit(false);
   }
 }

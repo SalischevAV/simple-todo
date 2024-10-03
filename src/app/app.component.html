@@ -3,10 +3,10 @@
     <ul id="users">
         @for(user of users; track user.id){
             <li>
-                <app-user 
+                <app-user
                     [selected]="user.id === selectedUser?.id"
-                    [user]="user" 
-                    (select)="onSelectUser($event)"
+                    [user]="user"
+                    (selectUser)="onSelectUser($event)"
                 />
             </li>
         }
